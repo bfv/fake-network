@@ -1,0 +1,31 @@
+---
+AMS:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.4
+APD:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.6
+DEV:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.7
+UTR:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.5
+node-a:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.2
+node-b:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.3

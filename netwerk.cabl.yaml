@@ -1,0 +1,61 @@
+name: bfv-netwerk
+
+topology:
+  nodes:
+    node-a: 
+      kind: linux
+      image: alpine:latest
+      binds:
+        - config/node-a.sh:/tmp/setup.sh
+      exec:
+        - sh /tmp/setup.sh
+
+    node-b: 
+      kind: linux
+      image: alpine:latest
+      binds:
+        - config/node-b.sh:/tmp/setup.sh
+      exec:
+        - sh /tmp/setup.sh
+
+    AMS:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - config/AMS.sh:/tmp/setup.sh
+      exec:
+        - sh /tmp/setup.sh
+
+    UTR:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - config/UTR.sh:/tmp/setup.sh
+      exec:
+        - sh /tmp/setup.sh
+
+    DEV:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - config/DEV.sh:/tmp/setup.sh
+      exec:
+        - sh /tmp/setup.sh
+
+    APD:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - config/APD.sh:/tmp/setup.sh
+      exec:
+        - sh /tmp/setup.sh
+
+  links:
+    - endpoints: ["node-a:eth1", "AMS:eth1"]
+    - endpoints: ["AMS:eth2", "UTR:eth1"]
+    - endpoints: ["UTR:eth2", "DEV:eth1"]
+    - endpoints: ["DEV:eth2", "node-b:eth1"]
+    - endpoints: ["UTR:eth3", "APD:eth1"]
+    - endpoints: ["APD:eth2", "DEV:eth3"]
+
+    
