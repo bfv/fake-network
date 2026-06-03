@@ -20,35 +20,39 @@ topology:
 
     AMS:
       kind: linux
-      image: alpine:latest
+      image: frrouting/frr:latest
       binds:
-        - config/AMS.sh:/tmp/setup.sh
+        - config/frr-daemons:/etc/frr/daemons
+        - config/AMS-frr.conf:/etc/frr/frr.conf
       exec:
-        - sh /tmp/setup.sh
+        - apk add --no-cache tcpdump
 
     UTR:
       kind: linux
-      image: alpine:latest
+      image: frrouting/frr:latest
       binds:
-        - config/UTR.sh:/tmp/setup.sh
+        - config/frr-daemons:/etc/frr/daemons
+        - config/UTR-frr.conf:/etc/frr/frr.conf
       exec:
-        - sh /tmp/setup.sh
+        - apk add --no-cache tcpdump
 
     DEV:
       kind: linux
-      image: alpine:latest
+      image: frrouting/frr:latest
       binds:
-        - config/DEV.sh:/tmp/setup.sh
+        - config/frr-daemons:/etc/frr/daemons
+        - config/DEV-frr.conf:/etc/frr/frr.conf
       exec:
-        - sh /tmp/setup.sh
+        - apk add --no-cache tcpdump
 
     APD:
       kind: linux
-      image: alpine:latest
+      image: frrouting/frr:latest
       binds:
-        - config/APD.sh:/tmp/setup.sh
+        - config/frr-daemons:/etc/frr/daemons
+        - config/APD-frr.conf:/etc/frr/frr.conf
       exec:
-        - sh /tmp/setup.sh
+        - apk add --no-cache tcpdump
 
   links:
     - endpoints: ["node-a:eth1", "AMS:eth1"]

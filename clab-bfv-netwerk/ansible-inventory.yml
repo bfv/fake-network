@@ -8,14 +8,14 @@ all:
     linux:
       hosts:
         clab-bfv-netwerk-AMS:
-          ansible_host: 172.20.20.4
-        clab-bfv-netwerk-APD:
-          ansible_host: 172.20.20.6
-        clab-bfv-netwerk-DEV:
-          ansible_host: 172.20.20.7
-        clab-bfv-netwerk-UTR:
-          ansible_host: 172.20.20.5
-        clab-bfv-netwerk-node-a:
           ansible_host: 172.20.20.2
-        clab-bfv-netwerk-node-b:
+        clab-bfv-netwerk-APD:
+          ansible_host: 172.20.20.7
+        clab-bfv-netwerk-DEV:
           ansible_host: 172.20.20.3
+        clab-bfv-netwerk-UTR:
+          ansible_host: 172.20.20.6
+        clab-bfv-netwerk-node-a:
+          ansible_host: 172.20.20.5
+        clab-bfv-netwerk-node-b:
+          ansible_host: 172.20.20.4
