@@ -18,6 +18,38 @@ topology:
       exec:
         - sh /tmp/setup.sh
 
+    lan-10:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - config/lan-10.sh:/tmp/setup.sh
+      exec:
+        - sh /tmp/setup.sh
+
+    node-c1:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - config/node-c1.sh:/tmp/setup.sh
+      exec:
+        - sh /tmp/setup.sh
+
+    node-c2:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - config/node-c2.sh:/tmp/setup.sh
+      exec:
+        - sh /tmp/setup.sh
+
+    node-c3:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - config/node-c3.sh:/tmp/setup.sh
+      exec:
+        - sh /tmp/setup.sh
+
     AMS:
       kind: linux
       image: frrouting/frr:latest
@@ -61,5 +93,9 @@ topology:
     - endpoints: ["DEV:eth2", "node-b:eth1"]
     - endpoints: ["UTR:eth3", "APD:eth1"]
     - endpoints: ["APD:eth2", "DEV:eth3"]
+    - endpoints: ["UTR:eth4", "lan-10:eth1"]
+    - endpoints: ["lan-10:eth2", "node-c1:eth1"]
+    - endpoints: ["lan-10:eth3", "node-c2:eth1"]
+    - endpoints: ["lan-10:eth4", "node-c3:eth1"]
 
     
